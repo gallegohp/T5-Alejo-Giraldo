@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-base-calculadora',
@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   templateUrl: './base-calculadora.html',
   styleUrl: './base-calculadora.scss',
 })
+
+
 export class BaseCalculadora {
+  @Output() calculado = new EventEmitter<void>();
+
 
 }

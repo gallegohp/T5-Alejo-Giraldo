@@ -1,1 +1,27 @@
-<p>resultado works!</p>
+<main>
+    <h1>Botones</h1>
+    <div class="numeros">
+
+        <app-botones-calc text="1" (buttonClicked)="leerNumero('1')"></app-botones-calc>
+        <app-botones-calc text="2" (buttonClicked)="leerNumero('2')"></app-botones-calc>
+        <app-botones-calc text="3" (buttonClicked)="leerNumero('3')"></app-botones-calc>
+        <app-botones-calc text="4" (buttonClicked)="leerNumero('4')"></app-botones-calc>
+        <app-botones-calc text="5" (buttonClicked)="leerNumero('5')"></app-botones-calc>
+        <app-botones-calc text="6" (buttonClicked)="leerNumero('6')"></app-botones-calc>
+        <app-botones-calc text="7" (buttonClicked)="leerNumero('7')"></app-botones-calc>
+        <app-botones-calc text="8" (buttonClicked)="leerNumero('8')"></app-botones-calc>
+        <app-botones-calc text="9" (buttonClicked)="leerNumero('9')"></app-botones-calc>
+        <app-botones-calc text="0" (buttonClicked)="leerNumero('0')"></app-botones-calc>
+        
+    </div>
+    <div class="numeros">
+        <app-botones-calc text="X" (buttonClicked)="leerNumero('X')"></app-botones-calc>
+        <app-botones-calc text="/" (buttonClicked)="leerNumero('/')"></app-botones-calc>
+        <app-botones-calc text="+" (buttonClicked)="leerNumero('+')"></app-botones-calc>
+        <app-botones-calc text="-" (buttonClicked)="leerNumero('-')"></app-botones-calc>
+    </div>
+    <app-botones-calc text="=" (buttonClicked)="leerNumero('0')"></app-botones-calc>
+
+    <h1>Resultado</h1>
+    
+</main>

@@ -1,0 +1,11 @@
+button {
+    padding: 1rem 1rem;
+    transition: scale ease-in 300ms;
+    cursor: pointer;
+    height: auto;
+    background-color: rgb(179, 202, 202);
+    
+    &:hover {
+        transform: scale(1.1);
+    }
+}
