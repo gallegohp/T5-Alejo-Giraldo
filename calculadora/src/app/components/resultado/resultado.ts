@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-resultado',
@@ -7,31 +7,79 @@ import { Component, Input, Output } from '@angular/core';
   styleUrl: './resultado.scss',
 })
 export class Resultado {
-  numero = '';
-  cadena = "";
-  operacion : string[] = ['+' , 'X' , '/', '-']
+  display = '0';
+  primerNumero = '';
+  operador = '';
+  esperandoSegundo = false;
+  mostrarError = false;
 
-  leerNumero(numero : string){
-    this.operacion.forEach((str: string) => {
-      if (str !== numero){
-        console.log('es un numero')
-      }
-    });
-    this.numero = this.numero + numero;
-    console.log(this.numero);
+  agregarNumero(num: string) {
+    if (this.mostrarError) {
+      this.display = num;
+      this.mostrarError = false;
+      return;
+    }
+
+    if (this.esperandoSegundo) {
+      this.display = num;
+      this.esperandoSegundo = false;
+    } else {
+      this.display = this.display === '0' ? num : this.display + num;
+    }
   }
-  leerOperacion(str: string){
-    console.log(str)
+
+  elegirOperacion(op: string) {
+    if (this.primerNumero !== '' && !this.esperandoSegundo) {
+      this.calcular();
+    }
+    this.operador = op;
+    this.primerNumero = this.display;
+    this.esperandoSegundo = true;
   }
-//  leerNumero(str : string){
-//   if(!this.operacion.includes(this.numero)){
-//     this.numero = this.numero + str;
-//   }else {
-//     this.cadena = this.numero;
-//     this.numero = this.numero = "";
 
-//   }
-//  }
+  calcular() {
+    if (this.primerNumero === '' || this.operador === '') {
+      return;
+    }
 
+    const num1 = parseFloat(this.primerNumero);
+    const num2 = parseFloat(this.display);
+    let resultado: number;
 
+    switch (this.operador) {
+      case '+':
+        resultado = num1 + num2;
+        break;
+      case '-':
+        resultado = num1 - num2;
+        break;
+      case 'X':
+        resultado = num1 * num2;
+        break;
+      case '/':
+        if (num2 === 0) {
+          this.display = 'Error: división por 0';
+          this.mostrarError = true;
+          this.primerNumero = '';
+          this.operador = '';
+          return;
+        }
+        resultado = num1 / num2;
+        break;
+      default:
+        return;
+    }
+
+    this.display = resultado.toString();
+    this.primerNumero = '';
+    this.operador = '';
+  }
+
+  limpiar() {
+    this.display = '0';
+    this.primerNumero = '';
+    this.operador = '';
+    this.esperandoSegundo = false;
+    this.mostrarError = false;
+  }
 }
