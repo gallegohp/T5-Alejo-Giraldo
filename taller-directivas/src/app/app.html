@@ -5,5 +5,18 @@
 <button (click)="presionarBoton()" >{{ estadoBoton() }}</button>
 
 <p *ngIf="estado === 'pendiente'">
-    
-  </p>
+    presiona el boton, para ver los datos    
+</p>
+
+<p *ngIf="estado === 'cargando'">
+    cargando datos, por favor esperra
+</p>
+
+<div *ngIf="estado === 'exito'">
+    <h2>elementos cargados</h2>
+    <ul>
+      <li *ngFor="let item of users">
+        <span class="lista__nombre">{{ item.name }}</span>
+      </li>
+    </ul>
+  </div>

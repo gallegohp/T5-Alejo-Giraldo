@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 
-type Estado = 'pendiente' | 'cargando' | 'listo';
+type Estado = 'pendiente' | 'cargando' | 'exito';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ type Estado = 'pendiente' | 'cargando' | 'listo';
 })
 export class App {
 
-  estado : Estado = 'pendiente';
+  estado : Estado = 'exito';
 
   users : { name : String }[] = [
     {name : 'Camilo'},
@@ -21,11 +21,11 @@ export class App {
   ];
 
   estadoBoton() : string {
-    return this.estado === 'listo' ? 'borrar' : 'cargar'
+    return this.estado === 'exito' ? 'borrar' : 'cargar'
   }
 
   presionarBoton() : void {
-    if (this.estado === 'listo') {
+    if (this.estado === 'exito') {
       this.borrar();
       return;
     }
@@ -39,7 +39,7 @@ export class App {
     this.estado = 'cargando';
 
     setTimeout(() => {
-      this.estado = 'listo';
+      this.estado = 'exito';
     }, 2000);
   }
 
