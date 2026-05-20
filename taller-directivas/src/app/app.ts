@@ -23,4 +23,28 @@ export class App {
   estadoBoton() : string {
     return this.estado === 'listo' ? 'borrar' : 'cargar'
   }
-}
+
+  presionarBoton() : void {
+    if (this.estado === 'listo') {
+      this.borrar();
+      return;
+    }
+
+    if (this.estado === 'pendiente') {
+      this.cargar();
+    }
+  }
+
+  cargar(): void {
+    this.estado = 'cargando';
+
+    setTimeout(() => {
+      this.estado = 'listo';
+    }, 2000);
+  }
+
+  borrar() : void {
+      this.estado = 'pendiente';
+    }
+  }
+

@@ -2,4 +2,8 @@
 
 <p>Estado: {{estado}}</p>
 
-<button>{{ estadoBoton() }}</button>
+<button (click)="presionarBoton()" >{{ estadoBoton() }}</button>
+
+<p *ngIf="estado === 'pendiente'">
+    
+  </p>
