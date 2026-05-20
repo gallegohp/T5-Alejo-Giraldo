@@ -10,7 +10,7 @@ type Estado = 'pendiente' | 'cargando' | 'exito';
 })
 export class App {
 
-  estado : Estado = 'exito';
+  estado : Estado = 'pendiente';
 
   users : { name : String }[] = [
     {name : 'Camilo'},
