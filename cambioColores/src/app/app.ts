@@ -10,7 +10,7 @@ export class App {
   color = 'FFFFFF';
 
   tiposColor : {nombre: string, color: string}[] = [
-    {nombre: 'Rojo', color: '#F54927'},
+    {nombre: 'Rojo', color: '#e72700'},
     {nombre: 'Azul', color: '#1E90FF'},
     {nombre: 'Verde', color: '#32CD32'},
     {nombre: 'Morado', color: '#800080'},
