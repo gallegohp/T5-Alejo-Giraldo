@@ -1,1 +1,27 @@
-<p>from-product works!</p>
+<form class="form-product" (ngSubmit)="onClick()">
+  <label class="form-product__label" for="nombre">Nombre</label>
+  <input
+    id="nombre"
+    class="form-product__input"
+    [(ngModel)]="nombre"
+    [ngModelOptions]="{ standalone: true }"
+    type="text"
+    placeholder="Nombre"
+  />
+
+  <label class="form-product__label" for="precio">Precio</label>
+  <input
+    id="precio"
+    class="form-product__input"
+    [(ngModel)]="precio"
+    [ngModelOptions]="{ standalone: true }"
+    type="number"
+    min="0"
+    step="0.01"
+    placeholder="Precio"
+  />
+
+  <button class="form-product__button" type="submit" [disabled]="!isFormValid">
+    Crear
+  </button>
+</form>

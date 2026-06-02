@@ -1,0 +1,20 @@
+.products {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+
+  &__list {
+    flex: 1;
+    border: 1px solid #000;
+    padding: 15px;
+    min-height: 300px;
+  }
+
+  &__form {
+    width: 280px;
+    border: 1px solid #000;
+    padding: 15px;
+  }
+}

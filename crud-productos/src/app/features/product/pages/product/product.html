@@ -1,1 +1,24 @@
-<p>product works!</p>
+<div class="products">
+  <section class="products__list">
+    
+    <ng-container *ngIf="products.length === 0; else productList">
+      <app-list-empty></app-list-empty>
+    </ng-container>
+
+    <ng-template #productList>
+      <app-list-product
+        [products]="products"
+        (deleteProduct)="onDelete($event)"
+      >
+      </app-list-product>
+    </ng-template>
+
+  </section>
+
+  <section class="products__form">
+    <app-from-product
+      (onSubmit)="onSubmit($event)"
+    >
+    </app-from-product>
+  </section>
+</div>

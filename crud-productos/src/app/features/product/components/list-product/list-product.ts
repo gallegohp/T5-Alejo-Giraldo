@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductModel } from '../../models/product-model';
 
 @Component({
   selector: 'app-list-product',
@@ -7,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './list-product.scss',
 })
 export class ListProduct {
+  @Input() products: ProductModel[] = [];
+  @Output() deleteProduct = new EventEmitter<ProductModel>();
 
+  onDelete(product: ProductModel): void {
+    this.deleteProduct.emit(product);
+  }
 }

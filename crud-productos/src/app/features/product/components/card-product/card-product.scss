@@ -1,0 +1,27 @@
+.card-product {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 200px;
+  padding: 12px;
+  border: 1px solid #000;
+  text-align: center;
+
+  &__title {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  &__price {
+    font-size: 14px;
+    margin: 0;
+  }
+
+  &__delete {
+    padding: 6px;
+    border: 1px solid #000;
+    background: #fff;
+    font-size: 13px;
+    cursor: pointer;
+  }
+}

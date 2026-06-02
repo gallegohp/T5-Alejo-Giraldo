@@ -1,1 +1,7 @@
-<p>card-product works!</p>
+<article class="card-product">
+  <h2 class="card-product__title">{{ product.nombre }}</h2>
+  <p class="card-product__price">${{ product.precio }}</p>
+  <button class="card-product__delete" type="button" (click)="onClick()">
+    Eliminar
+  </button>
+</article>
