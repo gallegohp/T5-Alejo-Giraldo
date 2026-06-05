@@ -25,7 +25,7 @@ export class Product implements OnInit {
     };
     this.productService.createProduct(product);
     this.products = [...this.productService.products];
-  }
+  }w
 
   onDelete(product: ProductModel): void {
     this.productService.deleteProduct(product);

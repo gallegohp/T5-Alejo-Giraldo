@@ -12,6 +12,9 @@ import { UserList } from './pages/user-list/user-list';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    UserList
   ]
 })
-export class PostModule { }
+export class UserModule { }
