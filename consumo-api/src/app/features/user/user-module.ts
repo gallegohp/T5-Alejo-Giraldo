@@ -1,0 +1,17 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { UserCard } from './components/user-card/user-card';
+import { UserList } from './pages/user-list/user-list';
+
+
+
+@NgModule({
+  declarations: [
+    UserCard,
+    UserList
+  ],
+  imports: [
+    CommonModule
+  ]
+})
+export class PostModule { }

@@ -1,0 +1,28 @@
+<div class="user-card">
+  <div class="user-card__avatar">
+    {{ user.name.charAt(0) }}
+  </div>
+
+  <div class="user-card__content">
+    <h3 class="user-card__title">
+      {{ user.name }}
+    </h3>
+
+    <div class="user-card__info">
+      <span>ID: {{ user.id }}</span>
+      <span>@{{ user.username }}</span>
+    </div>
+
+    <p class="user-card__email">
+      {{ user.email }}
+    </p>
+
+    <p class="user-card__city">
+      {{ user.address.city }}
+    </p>
+
+    <button class="user-card__button">
+      Ver perfil
+    </button>
+  </div>
+</div>
