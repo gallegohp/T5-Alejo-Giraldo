@@ -1,6 +1,6 @@
-# Rxjs
+# TallerPokemon
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.28.
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.29.
 
 ## Development server
 
