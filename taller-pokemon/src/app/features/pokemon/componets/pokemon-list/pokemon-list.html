@@ -1,25 +1,19 @@
 <div class="container">
-  @if (loading) {
-    <div class="loading">Cargando Pokémon...</div>
-  }
+  <div *ngIf="loading" class="loading">Cargando Pokémon...</div>
   
-  @if (error) {
-    <div class="error">{{ error }}</div>
-  }
+  <div *ngIf="error" class="error">{{ error }}</div>
   
   <div class="grid">
-    @for (pokemon of pokemonList$ | async; track pokemon.id) {
-      <app-pokemon-card 
-        [pokemon]="pokemon"
-        (selected)="onSelectPokemon($event)">
-      </app-pokemon-card>
-    }
+    <app-pokemon-card 
+      *ngFor="let pokemon of pokemonList$ | async; trackBy: trackById"
+      [pokemon]="pokemon"
+      (selected)="onSelectPokemon($event)">
+    </app-pokemon-card>
   </div>
   
-  @if (selectedPokemon) {
-    <app-pokemon-detail 
+  <app-pokemon-detail 
+      *ngIf="selectedPokemon"
       [pokemon]="selectedPokemon"
       (closed)="onCloseDetail()">
-    </app-pokemon-detail>
-  }
+  </app-pokemon-detail>
 </div>

@@ -33,6 +33,10 @@ export class PokemonList implements OnInit{
     });
   }
 
+  trackById(index: number, pokemon: Pokemon): number {
+    return pokemon.id;
+  }
+
   onSelectPokemon(pokemon: Pokemon) {
     this.selectedPokemon = pokemon;
   }
