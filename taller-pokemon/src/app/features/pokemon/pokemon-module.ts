@@ -15,6 +15,9 @@ import { PokemonDetail } from './componets/pokemon-detail/pokemon-detail';
   imports: [
     CommonModule,
     HttpClientModule
+  ],
+  exports: [
+    PokemonList
   ]
 })
 export class PokemonModule { 
