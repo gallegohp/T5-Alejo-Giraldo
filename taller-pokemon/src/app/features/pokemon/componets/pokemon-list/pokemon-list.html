@@ -1,3 +1,22 @@
-<div class="card">
-    
+<div class="container">
+  @if (loading) {
+    <div class="loading">Cargando Pokémon...</div>
+  }
+  
+  @if (error) {
+    <div class="error">{{ error }}</div>
+  }
+  
+  <div class="grid">
+    @for (pokemon of pokemonList$ | async; track pokemon.id) {
+      <div class="card">
+        <img [src]="pokemon.sprites?.front_default" [alt]="pokemon.name">
+        <h3>{{ pokemon.name }}</h3>
+        <p><strong>ID:</strong> {{ pokemon.id }}</p>
+        <p><strong>Types:</strong> {{ pokemon.types?.length }}</p>
+        <p><strong>Stats:</strong> {{ pokemon.stats?.length }}</p>
+        <p><strong>Abilities:</strong> {{ pokemon.abilities?.length }}</p>
+      </div>
+    }
+  </div>
 </div>

@@ -23,4 +23,7 @@ export interface Pokemon {
         is_hidden: boolean;   
         slot: number;
     }[];
+    sprites: {
+        front_default: string | null;
+    };
 }

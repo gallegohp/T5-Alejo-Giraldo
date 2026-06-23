@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../../services/pokemon.service';
 import { Observable, of } from 'rxjs';
-import { PokemonResponse } from '../../models/pokemon-req-list.model';
+import { Pokemon } from '../../models/pokemon-req.model';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -11,14 +11,25 @@ import { PokemonResponse } from '../../models/pokemon-req-list.model';
 })
 export class PokemonList implements OnInit{
 
-  pokemonList$: Observable<PokemonResponse[]> = of([]);
+  pokemonList$: Observable<Pokemon[]> = of([]);
+  loading = true;
+  error = '';
 
   constructor(
     private pokemonService: PokemonService
   ){}
 
   ngOnInit(): void {
-    this.pokemonService.getAllPokemon().subscribe
+    this.pokemonService.getAllPokemon().subscribe({
+      next: (pokemons) => {
+        this.pokemonList$ = of(pokemons);
+        this.loading = false;
+      },
+      error: (err) => {
+        this.error = 'Error al cargar los Pokémon';
+        this.loading = false;
+      }
+    });
   }
 
 }

@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, map, } from 'rxjs';
+import { Observable, map, switchMap, forkJoin, catchError, of } from 'rxjs';
 import { PokemonListResponse } from '../models/pokemon-list-response.model';
 import { PokemonResponse } from '../models/pokemon-req-list.model';
+import { Pokemon } from '../models/pokemon-req.model';
 
 
 @Injectable({
@@ -16,19 +17,25 @@ export class PokemonService {
     private http: HttpClient
   ) {}
 
-  getAllPokemon(): Observable<PokemonResponse[]> {
+  getAllPokemon(): Observable<Pokemon[]> {
     return this.http.get<PokemonListResponse>(this.API_URL).pipe(
-      map((pokemons) => this.mapPokemons(pokemons))
+      switchMap((response) => {
+        const detailRequests = response.results.map((pokemon) =>
+          this.http.get<Pokemon>(pokemon.url)
+        );
+        return forkJoin(detailRequests).pipe(
+          map((pokemons) => pokemons),
+          catchError((error) => {
+            console.error('Error fetching pokemon details:', error);
+            return of([]);
+          })
+        );
+      }),
+      catchError((error) => {
+        console.error('Error fetching pokemon list:', error);
+        return of([]);
+      })
     );
-  }
-
-  mapPokemons(pokemons: PokemonListResponse) {
-    return pokemons.results.map((pokemon) => {
-      return {
-        name: pokemon.name,
-        url: pokemon.url,
-      };
-    });
   }
 
 }
