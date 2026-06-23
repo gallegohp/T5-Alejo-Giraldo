@@ -9,14 +9,17 @@
   
   <div class="grid">
     @for (pokemon of pokemonList$ | async; track pokemon.id) {
-      <div class="card">
-        <img [src]="pokemon.sprites?.front_default" [alt]="pokemon.name">
-        <h3>{{ pokemon.name }}</h3>
-        <p><strong>ID:</strong> {{ pokemon.id }}</p>
-        <p><strong>Types:</strong> {{ pokemon.types?.length }}</p>
-        <p><strong>Stats:</strong> {{ pokemon.stats?.length }}</p>
-        <p><strong>Abilities:</strong> {{ pokemon.abilities?.length }}</p>
-      </div>
+      <app-pokemon-card 
+        [pokemon]="pokemon"
+        (selected)="onSelectPokemon($event)">
+      </app-pokemon-card>
     }
   </div>
+  
+  @if (selectedPokemon) {
+    <app-pokemon-detail 
+      [pokemon]="selectedPokemon"
+      (closed)="onCloseDetail()">
+    </app-pokemon-detail>
+  }
 </div>

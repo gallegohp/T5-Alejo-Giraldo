@@ -1,0 +1,10 @@
+<div class="card" (click)="onClick()">
+  <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+  <h3>{{ pokemon.name }}</h3>
+  <p><strong>ID:</strong> #{{ pokemon.id }}</p>
+  <div class="types">
+    @for (type of pokemon.types; track type.slot) {
+      <span class="type">{{ type.type.name }}</span>
+    }
+  </div>
+</div>

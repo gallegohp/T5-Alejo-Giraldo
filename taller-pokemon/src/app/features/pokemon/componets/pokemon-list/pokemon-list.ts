@@ -12,6 +12,7 @@ import { Pokemon } from '../../models/pokemon-req.model';
 export class PokemonList implements OnInit{
 
   pokemonList$: Observable<Pokemon[]> = of([]);
+  selectedPokemon: Pokemon | null = null;
   loading = true;
   error = '';
 
@@ -30,6 +31,14 @@ export class PokemonList implements OnInit{
         this.loading = false;
       }
     });
+  }
+
+  onSelectPokemon(pokemon: Pokemon) {
+    this.selectedPokemon = pokemon;
+  }
+
+  onCloseDetail() {
+    this.selectedPokemon = null;
   }
 
 }

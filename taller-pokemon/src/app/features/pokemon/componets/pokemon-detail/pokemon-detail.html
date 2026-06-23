@@ -1,0 +1,32 @@
+<div class="detail">
+  <button class="close" (click)="onClose()">×</button>
+  <img [src]="pokemon.sprites.front_default" [alt]="pokemon.name">
+  <h2>{{ pokemon.name }}</h2>
+  <p class="id">#{{ pokemon.id }}</p>
+  
+  <div class="section">
+    <h3>Types</h3>
+    <div class="types">
+      @for (type of pokemon.types; track type.slot) {
+        <span class="type">{{ type.type.name }}</span>
+      }
+    </div>
+  </div>
+  
+  <div class="section">
+    <h3>Stats</h3>
+    @for (stat of pokemon.stats; track stat.stat.url) {
+      <div class="stat">
+        <span>{{ stat.stat.name }}</span>
+        <span>{{ stat.base_stat }}</span>
+      </div>
+    }
+  </div>
+  
+  <div class="section">
+    <h3>Abilities</h3>
+    @for (ability of pokemon.abilities; track ability.slot) {
+      <span class="ability">{{ ability.ability.name }}</span>
+    }
+  </div>
+</div>

@@ -1,5 +1,6 @@
 .container {
   padding: 1rem;
+  position: relative;
 }
 
 .loading, .error {
@@ -16,28 +17,4 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 1rem;
-}
-
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1rem;
-  text-align: center;
-  background: #fff;
-}
-
-.card img {
-  width: 96px;
-  height: 96px;
-}
-
-.card h3 {
-  margin: 0.5rem 0;
-  text-transform: capitalize;
-}
-
-.card p {
-  margin: 0.25rem 0;
-  font-size: 0.9rem;
-  color: #666;
 }

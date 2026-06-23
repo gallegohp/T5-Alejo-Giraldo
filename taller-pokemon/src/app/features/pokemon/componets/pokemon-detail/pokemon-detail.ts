@@ -1,0 +1,17 @@
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Pokemon } from '../../models/pokemon-req.model';
+
+@Component({
+  selector: 'app-pokemon-detail',
+  standalone: false,
+  templateUrl: './pokemon-detail.html',
+  styleUrl: './pokemon-detail.scss',
+})
+export class PokemonDetail {
+  @Input() pokemon!: Pokemon;
+  @Output() closed = new EventEmitter<void>();
+
+  onClose() {
+    this.closed.emit();
+  }
+}
