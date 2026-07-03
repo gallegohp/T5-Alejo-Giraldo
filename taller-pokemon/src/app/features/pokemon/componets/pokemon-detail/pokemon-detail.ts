@@ -3,9 +3,9 @@ import { Pokemon } from '../../models/pokemon-req.model';
 
 @Component({
   selector: 'app-pokemon-detail',
-  standalone: false,
   templateUrl: './pokemon-detail.html',
-  styleUrl: './pokemon-detail.scss',
+  styleUrls: ['./pokemon-detail.scss'],
+  standalone: false
 })
 export class PokemonDetail {
   @Input() pokemon!: Pokemon;

@@ -3,8 +3,8 @@ import { Component, signal } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.html',
-  standalone: false,
-  styleUrl: './app.scss'
+  standalone: false, 
+  styleUrls: ['./app.scss']
 })
 export class App {
   protected readonly title = signal('taller-pokemon');
