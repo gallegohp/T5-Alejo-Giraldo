@@ -1,7 +1,6 @@
 <form [formGroup]="form">
   <h2>Registro de usuario</h2>
 
-  <!-- Nombre completo -->
   <div class="form-group">
     <label for="nombreCompleto">Nombre completo</label>
     <input id="nombreCompleto" type="text" formControlName="nombreCompleto" placeholder="Camilo Rodríguez" [class.invalid]="hasError('nombreCompleto', 'required') || hasError('nombreCompleto', 'minlength')">
@@ -11,7 +10,6 @@
     </div>
   </div>
 
-  <!-- Correo -->
   <div class="form-group">
     <label for="email">Correo electrónico</label>
     <input id="email" type="email" formControlName="email" placeholder="camilo@correo.com" [class.invalid]="hasError('email', 'required') || hasError('email', 'email')">
@@ -21,7 +19,6 @@
     </div>
   </div>
 
-  <!-- Nombre de usuario -->
   <div class="form-group">
     <label for="nombreUsuario">Nombre de usuario</label>
     <input id="nombreUsuario" type="text" formControlName="nombreUsuario" placeholder="camilo_rt" [class.invalid]="hasError('nombreUsuario', 'required') || hasError('nombreUsuario', 'pattern')">
@@ -31,7 +28,6 @@
     </div>
   </div>
 
-  <!-- Contraseña -->
   <div class="form-group">
     <label for="contraseña">Contraseña</label>
     <input id="contraseña" type="password" formControlName="contraseña" placeholder="••••••••" [class.invalid]="hasError('contraseña', 'required') || hasError('contraseña', 'minlength')">
@@ -44,7 +40,6 @@
     </div>
   </div>
 
-  <!-- Confirmar contraseña -->
   <div class="form-group">
     <label for="confirmarContraseña">Confirmar contraseña</label>
     <input id="confirmarContraseña" type="password" formControlName="confirmarContraseña" placeholder="••••••••" [class.invalid]="hasError('confirmarContraseña', 'required') || hasError('confirmarContraseña', 'minlength')">
@@ -58,7 +53,6 @@
     </div>
   </div>
 
-  <!-- Edad -->
   <div class="form-group">
     <label for="edad">Edad</label>
     <input id="edad" type="number" formControlName="edad" placeholder="25" [class.invalid]="hasError('edad', 'required') || hasError('edad', 'min') || hasError('edad', 'max')">
@@ -69,7 +63,6 @@
     </div>
   </div>
 
-  <!-- Términos -->
   <div class="form-group">
     <label>
       <input type="checkbox" formControlName="terminosCondiciones">
@@ -82,9 +75,8 @@
 
   <button type="button" (click)="onClick()" [disabled]="form.invalid">Crear cuenta</button>
 
-  <!-- Resumen -->
   <div *ngIf="submittedData" class="resumen">
-    <h3>✅ Registro exitoso</h3>
+    <h3>Registro exitoso</h3>
     <p><strong>Nombre:</strong> {{ submittedData.nombreCompleto }}</p>
     <p><strong>Correo:</strong> {{ submittedData.email }}</p>
     <p><strong>Usuario:</strong> {{ submittedData.nombreUsuario }}</p>
